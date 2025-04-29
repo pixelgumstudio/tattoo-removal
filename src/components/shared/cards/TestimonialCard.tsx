@@ -25,7 +25,7 @@ export const TestimonialCard = ({
         {text}
       </Paragraph>
       <div className="w-full max-w-[400px]">
-        <Title as="h4" className={clsx("font-semibold mb-1", dark && "text-white")}>
+        <Title className={clsx("font-semibold mb-1", dark && "text-white")}>
           {name}
         </Title>
         <Paragraph className={clsx(dark && "text-white")}>{title}</Paragraph>

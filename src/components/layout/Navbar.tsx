@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Heading, Title, SmallText } from "../ui/typography";
+import { Heading, Title, Paragraph } from "../ui/typography";
 // import { ThemeToggle } from "../shared/ThemeToggle";
 
 export default function Navbar() {
@@ -31,9 +31,9 @@ export default function Navbar() {
         <nav className="hidden md:flex space-x-6">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}>
-              <SmallText className="hover:text-black transition-colors">
+              <Paragraph className="hover:text-black transition-colors">
                 {link.label}
-              </SmallText>
+              </Paragraph>
             </Link>
           ))}
           {/* <ThemeToggle /> */}
@@ -54,9 +54,9 @@ export default function Navbar() {
         <nav className="md:hidden mt-4 space-y-2 px-4">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}>
-              <SmallText className="block py-2 border-b">
+              <Paragraph className="block py-2 border-b">
                 {link.label}
-              </SmallText>
+              </Paragraph>
             </Link>
           ))}
           {/* <ThemeToggle /> */}

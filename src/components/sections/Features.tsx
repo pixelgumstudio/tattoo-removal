@@ -71,10 +71,10 @@ const Features = ({
   />
            </div>
       <div className={clsx("bg-white z-10 relative max-w-[1152px] mx-auto px-4 md:px-8 py-15", alignment[align], className)}>
-        <Subheading align="center" className="mb-10 max-w-[600px] mx-auto">
+        <Subheading align="center" className="mb-10 max-w-[900px] mx-auto">
           {title}
         </Subheading>
-         {description && <Paragraph  align="center" >{description}</Paragraph>}
+         {description && <Paragraph size="base"  align="center" >{description}</Paragraph>}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((feature, idx) => (
             <FeatureCard key={idx} {...feature} />

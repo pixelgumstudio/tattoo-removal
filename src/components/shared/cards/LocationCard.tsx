@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import clsx from "clsx";
-import { Paragraph, SmallText } from "@/components/ui/typography";
+import { Paragraph } from "@/components/ui/typography";
 
 interface LocationCardProps {
   title: string;
@@ -43,9 +43,9 @@ export default function LocationCard({
           <Paragraph size="lg" className="text-lg font-semibold text-white">{title}</Paragraph>
           <ArrowRight className="w-4 h-4" />
         </div>
-        <SmallText className="text-white/80">
+        <Paragraph className="text-white/80">
           {locations} locations &bull; {services} services
-        </SmallText>
+        </Paragraph>
       </div>
     </Link>
   );

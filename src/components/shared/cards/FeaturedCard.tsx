@@ -10,9 +10,9 @@ interface FeatureCardProps {
 const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
     <div className="text-center max-w-xs mx-auto">
-      <div className="text-3xl mb-3">{icon}</div>
+      <div className="mb-3">{icon}</div>
       <Title align="center">{title}</Title>
-      <Paragraph align="center" variant="muted" size="base">
+      <Paragraph align="center" variant="muted">
         {description}
       </Paragraph>
     </div>

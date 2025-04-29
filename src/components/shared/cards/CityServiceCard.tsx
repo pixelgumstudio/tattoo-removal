@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { Paragraph, SmallText } from "@/components/ui/typography";
+import { Paragraph } from "@/components/ui/typography";
 
 interface CityServiceCardProps {
   image: string;
@@ -40,13 +40,13 @@ const CityServiceCard = ({
       <div className="relative z-10 flex flex-col justify-between h-full p-4 text-white">
         <div className="flex justify-between items-start">
           <div>
-            <Paragraph className="leading-snug" size="lg">
+            <Paragraph className="leading-snug">
               {city}, <br /> {state}
             </Paragraph>
           </div>
           <ArrowRight className="w-5 h-5 shrink-0" />
         </div>
-        <SmallText className="mt-auto">{servicesCount} tattoo removal services</SmallText>
+        <Paragraph className="mt-auto">{servicesCount} tattoo removal services</Paragraph>
       </div>
     </Link>
   );

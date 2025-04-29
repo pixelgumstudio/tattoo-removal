@@ -1,7 +1,7 @@
 import { MapPin, DollarSign, Star } from "lucide-react";
 import Link from "next/link";
 import Image from 'next/image';
-import { Paragraph } from "@/components/ui/typography";
+import { Paragraph, Title } from "@/components/ui/typography";
 import { createSlug } from "@/lib/slug";
 
 interface DescriptionCardProps {
@@ -35,10 +35,10 @@ export default function DescriptionCard({
 />
         <div className="flex-1">
             <div>
-              <Paragraph className="font-semibold text-gray-900">
+              <Title className="font-semibold text-gray-900">
                 {title}
-              </Paragraph>
-              <Paragraph size='base' className=" text-gray-500">{description}</Paragraph>
+              </Title>
+              <Paragraph className=" text-gray-500">{description}</Paragraph>
             </div>
           
 
@@ -57,12 +57,12 @@ export default function DescriptionCard({
 
           <div className="flex flex-wrap gap-2 mt-3">
             {tags.map((tag, i) => (
-              <span
+              <Paragraph
                 key={i}
-                className="text-xs bg-gray-100 text-gray-600 rounded-full px-3 py-1"
+                className="bg-gray-100 text-gray-600 rounded-full px-3 py-1"
               >
                 {tag}
-              </span>
+              </Paragraph>
             ))}
           </div>
 

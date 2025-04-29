@@ -36,7 +36,7 @@ export default function TopServices({
                 {title}
               </Subheading>
             )}
-            {description && <Paragraph>{description}</Paragraph>}
+            {description && <Paragraph size="base">{description}</Paragraph>}
           </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {clinics?.data.map((clinic, i) => (

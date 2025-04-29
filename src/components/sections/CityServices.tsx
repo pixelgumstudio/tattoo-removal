@@ -64,7 +64,7 @@ export default function CityServices({
                   {title}
                 </Subheading>
               )}
-              {description && <Paragraph as="p"  className={clsx("max-w-xxl", margin[alignment])}  align={alignment}>{description}</Paragraph>}
+              {description && <Paragraph size="base" className={clsx("max-w-xxl", margin[alignment])}  align={alignment}>{description}</Paragraph>}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {clinics && clinics.map((state, index) => (
