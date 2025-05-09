@@ -2,8 +2,13 @@ import clsx from "clsx";
 import DescriptionCard from "../shared/cards/DescriptionCard";
 import { Subheading, Paragraph } from "../ui/typography";
 import { useStores } from "@/lib/hooks/useStore";
+import { Suspense } from "react";
+import DescriptionCardSkeleton from "../shared/loader/DescriptionCardSkeleton";
 
 interface ServiceProps {
+  pageSize?: number;
+    state?: string;
+    city?: string;
     title?: string;
     description?: string;
     alignment?: "left" | "center" | "right";
@@ -13,6 +18,9 @@ interface ServiceProps {
 
 
 export default function TopServices({
+  pageSize = 6,
+  state,
+  city,
     title,
     description,
     alignment = "left",
@@ -22,9 +30,11 @@ export default function TopServices({
         center: "text-center items-center",
         right: "text-right items-end",
       }
-  const { data: clinics, isLoading, isError } = useStores(1, 6);
+      const page = 1;
+      const filter = state ? `state=${state}` : city ? `city=${city}` : "";
 
-  if (isLoading) return <p>Loading...</p>;
+  const { data: clinics, isLoading, isError } = useStores(page, pageSize, filter);
+
   if (isError) return <p>Something went wrong!</p>;
   return (
      <section className="w-full px-4 md:px-6 lg:px-10 py-12">
@@ -32,25 +42,31 @@ export default function TopServices({
           <div className={"w-full max-w-[1152px] mx-auto"}>
           <div className={clsx("flex flex-col mb-8 max-w-md", textAlign[alignment])}>
             {title && (
-              <Subheading>
+              <Subheading className="text-[24px]">
                 {title}
               </Subheading>
             )}
             {description && <Paragraph size="base">{description}</Paragraph>}
           </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {clinics?.data.map((clinic, i) => (
-            <DescriptionCard
-              key={i}
-              title={clinic.name}
-              description={clinic.description}
-              address={clinic.full_address}
-              price={clinic?.price || "N/A"}
-              tags={clinic?.tags || []}
-              image={clinic.logo || "/default-image.webp"}
-              reviews={clinic.reviews ||  "N/A"}
-            />
-          ))}
+        {isLoading
+    ? Array.from({ length: pageSize }).map((_, i) => (
+        <DescriptionCardSkeleton key={i} />
+      ))
+    : clinics?.stores.map((clinic, i) => (
+        <Suspense fallback={<DescriptionCardSkeleton />} key={i}>
+          <DescriptionCard
+            title={clinic.name}
+            description={clinic.description}
+            address={clinic.full_address}
+            price={clinic?.price_range || "N/A"}
+            tags={clinic?.tags || []}
+            image={clinic.logo || "/default-image.webp"}
+            reviews={clinic.reviews || "N/A"}
+            postal={clinic.postal_code || "N/A"}
+          />
+        </Suspense>
+      ))}
         </div>
       </div>
     </section>

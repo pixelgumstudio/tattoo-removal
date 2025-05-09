@@ -7,18 +7,20 @@ import Button from '../ui/Button';
 import Input from '../ui/Input';
 import { useSearchClinics } from '@/lib/hooks/useSearchClinics';
 import { AsyncStatus } from '../sections/AsynStatus';
-import { StateCard } from '@/types/store';
+import { Clinic } from '@/types/store';
+import Link from 'next/link';
+import { createSlug } from '@/lib/slug';
 
 
 interface SearchBarProps {
-  type?: 'state' | 'city' | 'service'; // optional with default
+  type?: 'state' | 'city' | 'service' | ""; // optional with default
   placeholder?: string;
   buttonText?: string;
 }
 
 export default function SearchBar({
-  type = 'state',
-  placeholder = 'Search for tattoo services...',
+  type,
+  placeholder = 'state',
   buttonText = 'Search',
 }: SearchBarProps) {
   const [query, setQuery] = useState('');
@@ -44,7 +46,7 @@ export default function SearchBar({
     if (submittedQuery) {
       const timer = setTimeout(() => {
         setSubmittedQuery('');
-      }, 5000); // Clear the submitted query after 5 seconds
+      }, 30000); // Clear the submitted query after 5 seconds
       return () => clearTimeout(timer); // Cleanup the timer on unmount or when submittedQuery changes
  }
  },[submittedQuery]);
@@ -63,7 +65,7 @@ export default function SearchBar({
         <Input
           type="text"
           name="search-query"
-          placeholder={placeholder}
+          placeholder={`Search for tattoo services ${placeholder}...`}
           defaultValue={query}
           onChange={(handleSearch) => setQuery(handleSearch.target.value)}
           className="flex-1"
@@ -74,14 +76,17 @@ export default function SearchBar({
       <AsyncStatus isLoading={isLoading} isError={isError} />
 
       {!isLoading && !isError && submittedQuery && (
-        <ul className="max-w-2xl space-y-3 text-sm text-gray-700">
-          {data?.data.map((clinic: StateCard, idx: number) => (
+        <ul className="max-w-2xl space-y-3 text-sm bg-white p-4 text-gray-700">
+          {data && data.data.map((clinic: Clinic, idx: number) => (
             <li key={idx} className="border-b pb-2">
+              <Link href={`/clinic/${createSlug(clinic.name)}?postal=${clinic.postal_code}`} className="flex flex-col">
+                <div className="flex items-center gap-2 mb-1">
               <strong>{clinic.name}</strong>
               <div className="text-gray-500">
                 {clinic.city}, {clinic.state}
               </div>
-              {clinic.phone && <div className="text-xs mt-1">{clinic.phone}</div>}
+              </div>
+              </Link>
             </li>
           ))}
         </ul>

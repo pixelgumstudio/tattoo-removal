@@ -10,8 +10,9 @@ interface DescriptionCardProps {
   address: string;
   price: string;
   reviews: string;
-  tags: string[];
+  tags?: string[];
   image: string;
+  postal: string;
 }
 
 export default function DescriptionCard({
@@ -22,10 +23,11 @@ export default function DescriptionCard({
   reviews,
   tags,
   image,
+  postal,
 }: DescriptionCardProps) {
   return (
-    <div className="w-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition">
-      <div className="flex gap-4 items-start">
+    <div className="w-full flex flex-col gap-6 rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md transition">
+    <div className="flex gap-4">
       <Image
   src={image}
   alt={title}
@@ -35,7 +37,7 @@ export default function DescriptionCard({
 />
         <div className="flex-1">
             <div>
-              <Title className="font-semibold text-gray-900">
+              <Title className="text-[16px] lg:text-[20px] font-semibold text-gray-900">
                 {title}
               </Title>
               <Paragraph className=" text-gray-500">{description}</Paragraph>
@@ -56,7 +58,7 @@ export default function DescriptionCard({
           </div>
 
           <div className="flex flex-wrap gap-2 mt-3">
-            {tags.map((tag, i) => (
+            {tags?.map((tag, i) => (
               <Paragraph
                 key={i}
                 className="bg-gray-100 text-gray-600 rounded-full px-3 py-1"
@@ -67,16 +69,16 @@ export default function DescriptionCard({
           </div>
 
           <Link
-            href={`/clinic/${createSlug(title)}`}
+            href={`/clinic/${createSlug(title)}?postal=${postal}`}
             className="inline-block mt-4 text-sm text-rose-500 border border-rose-200 hover:bg-rose-50 rounded-full px-4 py-1"
           >
             View service details
           </Link>
         </div>
-        <Link href={`/clinic/${createSlug(title)}`}>
+       
+        <Link href={`/clinic/${createSlug(title)}?postal=${postal}`}>
               <span className="text-gray-400 hover:text-gray-600 font-semibold text-xl">›</span>
-            </Link>
+            </Link> </div>
       </div>
-    </div>
   );
 }

@@ -19,13 +19,21 @@ function slugify(str: string): string {
 //   }
 // }
 
-interface SearchOptions {
-    query: string;
-    // service?: string;
-    type?: 'state' | 'city' | 'service';
-    page?: number;
-    limit?: number;
-  }
+export type SearchType = "city" | "state" | "service" | "zip" | "name" | undefined;
+
+export interface SearchOptions {
+  query: string;
+  type?: SearchType;
+  page?: number;
+  limit?: number;
+}
+// interface SearchOptions {
+//     query: string;
+//     // service?: string;
+//     type?: 'state' | 'city' | 'service | ;
+//     page?: number;
+//     limit?: number;
+//   }
   
   export async function searchClinicsByType({ query,  type = 'state', page = 1, limit = 0 }: SearchOptions) {
     const data = await getStoresData();

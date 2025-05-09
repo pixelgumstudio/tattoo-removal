@@ -1,14 +1,14 @@
 
 import { Metadata } from "next";
-import PageFile from './pageFile';
-import { PageInterface } from "../../../types";
+import PageFile from './[city]/pageFile';
+import { PageInterface } from '@/types/main';
 
 
 const data: PageInterface ={
   title: "Tattoo Removal Place | Tattoo Removal Clinics by city in the U.S.",
 description: "Find top-rated tattoo removal services across states in the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.",
-url: "https://wordiebox.com/clinic-by-city",
-image: "https://wordiebox.com/seo-card.png"
+url: "https://tattooremoval.com/clinic-by-city",
+image: "https://tattooremoval.com/seo-card.png"
 }
 export const metadata: Metadata = {
   
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: data.title,
   description: data.description,
   icons: {
-    icon: 'https://wordiebox.com/icon.png',  // This sets the favicon for this specific page
+    icon: 'https://tattooremoval.com/icon.png',  // This sets the favicon for this specific page
   },
   openGraph: {
     type: "website",

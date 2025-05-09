@@ -57,8 +57,7 @@ export async function GET(request: Request) {
       image: generateCityImage(item.state),
       city: item.city,
       state: item.state,
-      servicesCount: item.services.size,
-      link: `/state/${slugify(item.state)}`
+      servicesCount: item.services.size
     }));
 
   if (shuffle) {

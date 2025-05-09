@@ -1,7 +1,7 @@
 
 import { Metadata } from "next";
-import PageFile from './pageFile';
-import { PageInterface } from "../../../types";
+import PageFile from './[state]/pageFile';
+import { PageInterface } from "@/types/main";
 
 
 const data: PageInterface ={

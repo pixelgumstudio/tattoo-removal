@@ -3,25 +3,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Paragraph } from "@/components/ui/typography";
+import { CityServiceCardProps } from "@/types/store";
 
-interface CityServiceCardProps {
-  image: string;
-  city: string;
-  state: string;
-  servicesCount: number;
-  href: string;
-}
+
 
 const CityServiceCard = ({
   image,
   city,
   state,
   servicesCount,
-  href,
 }: CityServiceCardProps) => {
   return (
     <Link
-      href={href}
+      href={`clinic-by-city/${city}`}
       className="relative overflow-hidden rounded-xl group aspect-[1.8/1] bg-gray-100"
     >
       <div className="absolute inset-0">

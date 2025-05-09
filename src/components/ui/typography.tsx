@@ -2,13 +2,17 @@ import React, { JSX } from "react";
 import clsx from "clsx";
 
 // Types
-
 type Alignment = "left" | "center" | "right" | "justify";
 type Variant = "default" | "muted" | "secondary";
 type Size = "normal" | "base" | "lg";
+type ElementType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+
+// Restrict to HTML elements only (exclude SVG elements)
+type HtmlElementType = keyof Omit<JSX.IntrinsicElements, keyof SVGElementTagNameMap>;
 
 interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
-  as?: keyof JSX.IntrinsicElements;
+  component?: ElementType; // Optional, kept for backward compatibility
+  as?: HtmlElementType; // Restrict to HTML elements
   align?: Alignment;
   variant?: Variant;
   className?: string;
@@ -41,7 +45,7 @@ export const Heading = ({
   <Component
     className={clsx(
       "font-bold tracking-tight leading-tight",
-      "text-[24px] md:text-[48px] lg:text-[64px]", // font-size responsive
+      "text-[24px] md:text-[48px] lg:text-[64px]",
       baseAlignments[align],
       baseVariants[variant],
       className
@@ -63,7 +67,7 @@ export const Subheading = ({
   <Component
     className={clsx(
       "font-semibold tracking-tight",
-      "text-[20px] md:text-[24px] lg:text-[48px]", // Matches H2 styling
+      "text-[20px] xs:text-[24px] lg:text-[48px]",
       baseAlignments[align],
       baseVariants[variant],
       className
@@ -85,7 +89,7 @@ export const Title = ({
   <Component
     className={clsx(
       "font-semibold",
-      "text-[20px] lg:text-[24px]", // Title level, smaller
+      "text-[20px] lg:text-[24px]",
       baseAlignments[align],
       baseVariants[variant],
       className
@@ -110,9 +114,9 @@ export const Paragraph = ({
   ...props
 }: ParagraphProps) => {
   const sizeClasses: Record<Size, string> = {
-    normal: "text-[14px]  lg:text-[16px]",
+    normal: "text-[14px] lg:text-[16px]",
     base: "text-[14px] md:text-[16px] lg:text-[20px]",
-    lg: "text-[16px] md:text-[20px] lg:text-[24px]", // paragraph regular sizing
+    lg: "text-[16px] md:text-[20px] lg:text-[24px]",
   };
 
   return (

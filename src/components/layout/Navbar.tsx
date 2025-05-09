@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Heading, Title, Paragraph } from "../ui/typography";
+import { Title, Paragraph } from "../ui/typography";
 // import { ThemeToggle } from "../shared/ThemeToggle";
 
 export default function Navbar() {

@@ -12,7 +12,7 @@ export interface Store {
 
   export interface Clinic {
     tags: never[];
-    price: string;
+    price_range: string;
     name: string;
     description: string;
     about: string;
@@ -28,6 +28,7 @@ export interface Store {
     reviews: string;
     logo: string;
     photo: string;
+    postal_code: string;
     street_view: string;
     working_hours: string; // JSON string, could be parsed into a record
     reservation_links?: string;
@@ -41,4 +42,11 @@ export interface Store {
   services: number,
   backgroundImage: string,
   link: string,
+  }
+
+  export interface CityServiceCardProps {
+    image: string;
+    city: string;
+    state: string;
+    servicesCount: number;
   }

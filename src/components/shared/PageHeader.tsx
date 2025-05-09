@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import clsx from "clsx";
 import { ReactNode } from "react";
 import Image from "next/image";

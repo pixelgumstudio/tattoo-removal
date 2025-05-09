@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Subheading, Paragraph } from "../ui/typography";
 import FeatureCard from "../shared/cards/FeaturedCard";

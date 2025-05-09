@@ -52,11 +52,3 @@ export default function LocationCard({
 }
 
 
-// Usage
-{/* <LocationCard
-  title="Alabama"
-  locationCount={10}
-  serviceCount={5}
-  link="/states/alabama"
-  backgroundImage="/images/states/alabama.jpg"
-/> */}

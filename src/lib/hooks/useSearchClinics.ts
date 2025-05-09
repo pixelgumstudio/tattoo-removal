@@ -3,20 +3,21 @@ import { useQuery } from '@tanstack/react-query';
 
 interface SearchParams {
     query: string;
-    type?: 'state' | 'city' | 'service';
+    type?: 'state' | 'city' | 'service' | "";
     // service?: string;
     page?: number;
     limit?: number;
   }
   
-  export const useSearchClinics = ({ query, type = 'state', page = 1, limit = 10 }: SearchParams) => {
+  export const useSearchClinics = ({ query, type = "", page = 1, limit = 50 }: SearchParams) => {
+    console.log(type, "Type")
+
     return useQuery({
       queryKey: ['clinics', query, type, page, limit],
       queryFn: async () => {
         const params = new URLSearchParams({
           query,
           type,
-        //   service: service || '',
           page: `${page}`,
           limit: `${limit}`,
         });
