@@ -20,6 +20,13 @@ export default function Clinic() {
         <SearchBar type="state" placeholder="city"/>
       </PageHeader>
 
+      <TopServices
+      state={pageName}
+      pageSize={10}
+        title={`Top tattoo removal service in the ${pageName}`}
+        description="Discover the top tattoo places to remove your Tattoos in the US"
+      />
+      
       <FindCentre
         title="Find a tattoo removal center by state"
         description="Discover all the places to remove your tattoos from all the available states in the US"
@@ -28,12 +35,7 @@ export default function Clinic() {
         align="center"
         title="How Remover Tattoo Now is changing the tattoo removal landscape"
       />
-      <TopServices
-      state={pageName}
-      pageSize={10}
-        title="Top tattoo removal service in the US "
-        description="Discover the top tattoo places to remove your Tattoos in the US"
-      />
+    
 
       <FaqSection
         title="Frequently asked questions"

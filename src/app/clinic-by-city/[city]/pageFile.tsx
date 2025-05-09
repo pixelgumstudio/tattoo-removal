@@ -24,7 +24,7 @@ export default function Clinic() {
   <TopServices
   city={pageName}
   pageSize={10}
-        title="Top tattoo removal service in the US "
+        title={`Top tattoo removal service in the ${pageName} `}
         description="Discover the top tattoo places to remove your Tattoos in the US"
       />
         <CityServices
