@@ -1,10 +1,20 @@
 {
-    "framework": "nextjs",
-    "buildCommand": "npm run build",
-    "outputDirectory": ".next",
-    "installCommand": "npm install",
-    "rewrites": [
-      { "source": "/:path*", "destination": "/" }
-    ]
-  }
-  
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/clinic-by-state/:state",
+      "destination": "/clinic-by-state/:state"
+    },
+    {
+      "source": "/clinic-by-city/:city",
+      "destination": "/clinic-by-city/:city"
+    },
+    {
+      "source": "/clinic/:name",
+      "destination": "/clinic/:name"
+    }
+  ]
+}
