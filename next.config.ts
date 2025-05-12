@@ -2,7 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-
+  async headers() {
+    return [
+      {
+        source: '/clinic/:name',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, must-revalidate',
+          },
+        ],
+      },
+    ];
+  },
   images: {
     domains: [
       'lh4.googleusercontent.com',

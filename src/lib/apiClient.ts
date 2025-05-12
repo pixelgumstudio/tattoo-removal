@@ -54,6 +54,11 @@ export function fetchStoreById(id: number) {
   return safeFetch<Clinic>(`${BASE_URL}/${id}`);
 }
 
-export function fetchStoreByName({slug, postal}: {slug: string, postal?: string}) {
+// export function fetchStoreByName({slug, postal}: {slug: string, postal?: string}) {
+//   return safeFetch<Clinic>(`${BASE_URL}/name/${encodeURIComponent(slug)}?postal=${postal}`);
+// }
+
+export function fetchStoreByName({ slug, postal }: { slug: string, postal?: string }) {
+  console.log(`Fetching data for slug: ${slug} with postal: ${postal}`);
   return safeFetch<Clinic>(`${BASE_URL}/name/${encodeURIComponent(slug)}?postal=${postal}`);
 }

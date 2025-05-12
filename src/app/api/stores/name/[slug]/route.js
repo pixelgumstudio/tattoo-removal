@@ -1,16 +1,8 @@
 // src/app/api/stores/name/[slug]/route.ts
 import { getStoresData } from '@/lib/parseCsv';
+import { createSlug } from '@/lib/slug';
 
 
-
-// Utility to normalize clinic/store names into slugs
-function slugify(name) {
-  return name
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9\-]/g, '');
-}
 
 export async function GET(
   req,
@@ -32,7 +24,7 @@ export async function GET(
     const normalizedSlug = decodeURIComponent(slug.toLowerCase());
 
     const store = data.find(store => {
-      const matchesSlug = slugify(store.name || '') === normalizedSlug;
+      const matchesSlug = createSlug(store.name || '') === normalizedSlug;
       const matchesPostal = postalCode
         ? (store.postal_code || '').toString().toLowerCase() === postalCode.toLowerCase()
         : true;

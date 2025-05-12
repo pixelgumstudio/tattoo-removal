@@ -1,9 +1,11 @@
 export function createSlug(str: string) {
-    return str
-      ?.toLowerCase() // Convert to lowercase
-      .replace(/[^\w\s-]/g, '') // Remove non-word characters (excluding spaces and dashes)
-      .replace(/\s+/g, '-') // Replace spaces with dashes
-      .replace(/--+/g, '-') // Replace consecutive dashes with a single dash
-      .trim(); // Trim any leading or trailing spaces or dashes
-  }
+  return str
+    .toLowerCase() // Convert to lowercase
+    .trim() // Trim any leading/trailing spaces
+    .replace(/\s+/g, '-') // Replace all spaces with dashes
+    .replace(/[^a-z0-9-&]/g, '') // Remove any non-alphanumeric characters except for - and &
+    .replace(/--+/g, '-'); // Replace multiple consecutive dashes with a single dash
+}
+  
+
   
