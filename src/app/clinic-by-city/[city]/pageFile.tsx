@@ -1,4 +1,6 @@
 "use client";
+export const dynamic = 'force-dynamic';
+
 import CityServices from "@/components/sections/CityServices";
 import FaqSection from "@/components/sections/FaqSection";
 import Features from "@/components/sections/Features";
