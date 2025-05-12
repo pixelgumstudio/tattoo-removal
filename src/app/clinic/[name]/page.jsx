@@ -2,7 +2,9 @@ import PageFile from "./pageFile";
 
 export async function generateMetadata({ params, searchParams }) {
   const { name } = params || {};
-  const postal = typeof searchParams?.postal === "string" ? searchParams.postal : "N/A";
+  const postal = typeof searchParams?.postal === "string" && searchParams.postal.trim() !== ""
+  ? searchParams.postal
+  : "N/A";
 
   if (!name) {
     return {
@@ -11,13 +13,15 @@ export async function generateMetadata({ params, searchParams }) {
     };
   }
 
-  const capitalizedLang = name.replace(/-/g, " ");
-  const brandName = capitalizedLang.charAt(0).toUpperCase() + capitalizedLang.slice(1);
+  const brandName = name
+  .split("-")
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(" ");
 
   const rough_description = `Find top-rated tattoo removal services across the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.`;
 
   const title = `${brandName} | Tattoo removal services`;
-  const description = rough_description.slice(0, 150).trim().replace(/\s+\S*$/, "") + "...";
+const description = rough_description.slice(0, 150).trim().replace(/\s+\S*$/, "") + "...";
   const url = `https://tattooremoval.com/clinic/${name}?postal=${postal}`;
   const image = "https://tattooremoval.com/seo-card.png";
 

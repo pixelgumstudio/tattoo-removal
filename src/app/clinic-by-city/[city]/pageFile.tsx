@@ -12,6 +12,7 @@ export default function Clinic() {
     const pathname = usePathname();
   
     const pageName = pathname.split("/")[2]?.replace(/-/g, " ") || "";
+    console.log("pagename: ", pageName)
   return (
     <>
       <PageHeader
@@ -24,7 +25,7 @@ export default function Clinic() {
   <TopServices
   city={pageName}
   pageSize={10}
-        title={`Top tattoo removal service in the ${pageName} `}
+        title={`Top tattoo removal service in the ${pageName ? pageName : "City"} `}
         description="Discover the top tattoo places to remove your Tattoos in the US"
       />
         <CityServices

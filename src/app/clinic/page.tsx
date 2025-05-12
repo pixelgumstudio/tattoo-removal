@@ -1,6 +1,6 @@
 
 import { redirect } from 'next/navigation';
 
-export default function ClinicRedirectPage() {
+export default function ClinicRootRedirect() {
   redirect('/');
 }
