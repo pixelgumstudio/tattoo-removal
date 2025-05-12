@@ -13,7 +13,7 @@ export default function Navbar() {
     { label: "Tattoo removal by State", href: "/clinic-by-state" },
     { label: "Tattoo removal by city", href: "/clinic-by-city" },
     { label: "About us", href: "/about-us" },
-    { label: "Contact us", href: "/contact" },
+    { label: "Contact us", href: "/contact-us" },
     { label: "Blog", href: "/blog" },
   ];
 

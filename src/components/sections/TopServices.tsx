@@ -40,7 +40,7 @@ export default function TopServices({
      <section className="w-full px-4 md:px-6 lg:px-10 py-12">
             
           <div className={"w-full max-w-[1152px] mx-auto"}>
-          <div className={clsx("flex flex-col mb-8 max-w-md", textAlign[alignment])}>
+          <div className={clsx("flex flex-col mb-8 max-w-[600px]", textAlign[alignment])}>
             {title && (
               <Subheading className="text-[24px]">
                 {title}

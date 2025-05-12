@@ -11,7 +11,7 @@ import clsx from "clsx";
 export default function Home() {
   return (
     <>
-      <PageHeader title="About Us" />
+      <PageHeader title="About Us" align="center"/>
       <Section>
         <Paragraph className={clsx("leading-relaxed mb-4")}>
           Tattoooremovalplace is a complete directory of all the verified places
