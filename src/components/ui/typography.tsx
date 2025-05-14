@@ -89,7 +89,7 @@ export const Title = ({
   <Component
     className={clsx(
       "font-semibold",
-      "text-[20px] lg:text-[24px]",
+      "text-[16px] lg:text-[20px]",
       baseAlignments[align],
       baseVariants[variant],
       className

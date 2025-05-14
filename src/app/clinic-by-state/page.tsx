@@ -5,10 +5,10 @@ import { PageInterface } from "@/types/main";
 
 
 const data: PageInterface ={
-  title: "Tattoo Removal Place - Tattoo Removal Clinics by State in the U.S.",
+  title: "Tattooremovalplace | Tattoo Removal Clinics by State in the U.S.",
 description: "Find top-rated tattoo removal services across states in the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.",
-url: "https://wordiebox.com/clinic-by-state",
-image: "https://wordiebox.com/seo-card.png"
+url: "https://Tattooremovalplace.com/clinic-by-state",
+image: "https://Tattooremovalplace.com/seo-card.png"
 }
 export const metadata: Metadata = {
   
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   title: data.title,
   description: data.description,
   icons: {
-    icon: 'https://wordiebox.com/icon.png',  // This sets the favicon for this specific page
+    icon: 'https://Tattooremovalplace.com/icon.png',  // This sets the favicon for this specific page
   },
   openGraph: {
     type: "website",
-    siteName: "Wordiebox",
+    siteName: "Tattooremovalplace",
     title: data.title,
     description: data.description,
     url: data.url,

@@ -6,7 +6,7 @@ import { PageInterface } from '@/types/main';
 
 
 const data: PageInterface ={
-  title: "Tattoo Removal Place | Tattoo Removal Clinics by city in the U.S.",
+  title: "Tattooremovalplace | Tattoo Removal Clinics by city in the U.S.",
 description: "Find top-rated tattoo removal services across states in the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.",
 url: "https://tattooremoval.com/clinic-by-city",
 image: "https://tattooremoval.com/seo-card.png"
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Wordiebox",
+    siteName: "Tattooremovalplace",
     title: data.title,
     description: data.description,
     url: data.url,

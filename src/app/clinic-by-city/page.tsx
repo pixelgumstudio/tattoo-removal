@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Wordiebox",
+    siteName: "Tattooremovalplace",
     title: data.title,
     description: data.description,
     url: data.url,

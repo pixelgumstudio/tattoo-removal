@@ -42,7 +42,7 @@ export default function TopServices({
           <div className={"w-full max-w-[1152px] mx-auto"}>
           <div className={clsx("flex flex-col mb-8 max-w-[600px]", textAlign[alignment])}>
             {title && (
-              <Subheading className="text-[24px]">
+              <Subheading className="">
                 {title}
               </Subheading>
             )}

@@ -10,10 +10,10 @@ image: string,
 }
 
 const data: Page ={
-  title: "",
-description: "",
-url: "",
-image: ""
+  title: "Tattooremovalplace | About us ",
+description: "Tattoooremovalplace is a complete directory of all the verified places you can remove tattoos in the US. We list all the cities and states you can get your tattoo removed in the US ",
+url: "https://tattooremoval.com/clinic-by-city",
+image: "https://tattooremoval.com/seo-card.png"
 }
 export const metadata: Metadata = {
   
@@ -21,11 +21,11 @@ export const metadata: Metadata = {
   title: data.title,
   description: data.description,
   icons: {
-    icon: 'https://wordiebox.com/icon.png',  // This sets the favicon for this specific page
+    icon: 'https://Tattooremovalplace.com/icon.png',  // This sets the favicon for this specific page
   },
   openGraph: {
     type: "website",
-    siteName: "Wordiebox",
+    siteName: "Tattooremovalplace",
     title: data.title,
     description: data.description,
     url: data.url,

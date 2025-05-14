@@ -7,7 +7,15 @@ interface MapProps {
 }
 
 export const MapEmbed = ({ lat, long, label }: MapProps) => {
-  const query = encodeURIComponent(`${lat},${long} (${label})`);
+  // Validate lat and long to ensure they're valid numbers
+  const latitude = Number(lat);
+  const longitude = Number(long);
+
+  if (isNaN(latitude) || isNaN(longitude)) {
+    return <div>Invalid map coordinates</div>; // Optional error message
+  }
+
+  const query = encodeURIComponent(`${latitude},${longitude} (${label})`);
   const src = `https://maps.google.com/maps?q=${query}&z=15&output=embed`;
 
   return (
