@@ -1,17 +1,18 @@
-import { searchClinicsByType, SearchType } from '@/lib/searchClinicsByState';
+// import { searchClinicsByType, SearchType } from '@/lib/searchClinicsByState';
+import { searchClinicsByType } from '@/lib/searchClinicsByState';
 
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
   const query = searchParams.get('query') || '';
-  const type = searchParams.get('type') as SearchType || undefined; // default to 'state' if not provided
+  // const type = searchParams.get('type') as SearchType || undefined; // default to 'state' if not provided
   const page = parseInt(searchParams.get('page') || '1', 10);
   const limit = parseInt(searchParams.get('limit') || '10', 10);
 
   const results = await searchClinicsByType({
     query,
-    type,
+    // type,
     page,
     limit,
   });

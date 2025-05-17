@@ -19,7 +19,7 @@ interface SearchBarProps {
 }
 
 export default function SearchBar({
-  type,
+  // type,
   placeholder = 'state',
   buttonText = 'Search',
 }: SearchBarProps) {
@@ -28,7 +28,7 @@ export default function SearchBar({
 
   const { data, isLoading, isError } = useSearchClinics({
     query: submittedQuery,
-    type,
+    // type,
     limit: 10,
   });
 

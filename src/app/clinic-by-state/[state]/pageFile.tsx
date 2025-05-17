@@ -20,7 +20,7 @@ export default function Clinic() {
         title="Best tattoo removal by state"
         description="Discover all the places to remove a tattoo in your state , or choose your state below to see which tattoo removal centres offer the best payments for tattoo removals "
       >
-        <SearchBar type="state" placeholder="city"/>
+        <SearchBar type="state" placeholder="state"/>
       </PageHeader>
 
       <TopServices

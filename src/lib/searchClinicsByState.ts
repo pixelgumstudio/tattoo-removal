@@ -1,8 +1,8 @@
 import { getStoresData } from '@/lib/parseCsv';
 
-function slugify(str: string): string {
-  return str.toLowerCase().replace(/\s+/g, '-');
-}
+// function slugify(str: string): string {
+//   return str.toLowerCase().replace(/\s+/g, '-');
+// }
 
 // function parseServices(about?: string): string[] {
 //   try {
@@ -27,23 +27,22 @@ export interface SearchOptions {
   page?: number;
   limit?: number;
 }
-// interface SearchOptions {
-//     query: string;
-//     // service?: string;
-//     type?: 'state' | 'city' | 'service | ;
-//     page?: number;
-//     limit?: number;
-//   }
+
   
-  export async function searchClinicsByType({ query,  type = 'state', page = 1, limit = 0 }: SearchOptions) {
+  export async function searchClinicsByType({ query, page = 1, limit = 0 }: SearchOptions) {
     const data = await getStoresData();
     const normalizedQuery = query.toLowerCase();
+   
   
-    const filtered = data.filter(store => {
-      const valueToMatch = store[type] || '';
-      const matchExact = slugify(valueToMatch) === normalizedQuery;
-      const matchPartial = valueToMatch.toLowerCase().includes(normalizedQuery);
-  
+    const filtered = data.filter(store => {   
+      const state = store["state"]?.toLowerCase() ?? "";
+      const city = store["city"]?.toLowerCase() ?? "";
+      const matchExact = state === normalizedQuery || city === normalizedQuery;
+      const matchPartial = state.includes(normalizedQuery) || city.includes(normalizedQuery); 
+       
+      // const valueToMatch = store[type] || '';
+      // const matchExact = slugify(valueToMatch) === normalizedQuery;
+      // const matchPartial = valueToMatch.toLowerCase().includes(normalizedQuery);
   
       return (matchExact || matchPartial);
     });

@@ -17,7 +17,7 @@ interface SearchParams {
       queryFn: async () => {
         const params = new URLSearchParams({
           query,
-          type,
+          // type,
           page: `${page}`,
           limit: `${limit}`,
         });
