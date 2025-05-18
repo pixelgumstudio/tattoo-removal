@@ -10,7 +10,7 @@ export function useStores(page = 1, pageSize = 10, filter = '') {
       const response = await fetchStores(page, pageSize, filter);
       return {
         stores: response.data,     // rename 'data' to 'stores'
-        total: response.total,     // keep 'total'
+        total: response.meta.totalPages,     // keep 'total'
       };
     },
     staleTime: 1000 * 60 * 5, // 5 minutes

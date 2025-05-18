@@ -5,15 +5,25 @@ import PageFile from './pageFile';
 import { PageInterface } from "@/types/main";
 
 
-const data: PageInterface ={
-  title: "Tattooremovalplace | Tattoo Removal Clinics by State in the U.S.",
-description: "Find top-rated tattoo removal services across states in the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.",
-url: "https://Tattooremovalplace.com/clinic-by-state",
-image: "https://Tattooremovalplace.com/seo-card.png"
-}
-export const metadata: Metadata = {
-  
 
+export async function generateMetadata({ params }) {
+  const { state } = params || {};
+
+  if (!state) {
+    return {
+      title: "Error | Tattoo Removal Services",
+      description: "Invalid clinic name provided.",
+    };
+  }
+
+  const data ={
+    title: `Tattooremovalplace -  Tattoo Removal in ${state}, US`,
+    description: `Discover top-rated tattoo removal services in ${state}, US. Compare clinics, explore reviews, and book safe, affordable laser removal treatments with TattooRemovalPlace.`,
+    url: `https://tattooremoval.com/clinic-by-state/${state}`,
+  image: "https://Tattooremovalplace.com/seo-card.png"
+  }
+
+  return {
   title: data.title,
   description: data.description,
   icons: {
@@ -38,6 +48,7 @@ export const metadata: Metadata = {
       url: data.image,
     }],
   },
+}
 };
 
 

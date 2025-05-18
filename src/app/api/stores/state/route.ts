@@ -50,6 +50,9 @@ export async function GET(request: Request) {
   const minLocations = parseInt(searchParams.get('min') || '0');
   const shuffle = searchParams.get('shuffle') === 'true';
 
+  const page = parseInt(searchParams.get('page') || '1');
+  const perPage = parseInt(searchParams.get('perPage') || '10');
+
   const grouped: Record<string, { locations: number; services: Set<string> }> = {};
 
   data.forEach(store => {
@@ -74,19 +77,33 @@ export async function GET(request: Request) {
       backgroundImage: generateStateImage(state),
       link: `/state/${slugify(state)}`
     }))
-    .filter(item => item.locations >= minLocations); // Filter by min
+    .filter(item => item.locations >= minLocations);
+
+  const totalItems = result.length;
 
   if (shuffle) {
-    result = result.sort(() => Math.random() - 0.5); // Shuffle
+    result = result.sort(() => Math.random() - 0.5);
   } else {
-    result = result.sort((a, b) => b.locations - a.locations); // Default sort
+    result = result.sort((a, b) => b.locations - a.locations);
   }
 
   if (limit > 0) result = result.slice(0, limit);
 
-  return Response.json({ data: result });
-}
+  // ✅ Apply pagination
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  const paginated = result.slice(start, end);
 
+  return Response.json({
+    data: paginated,
+    meta: {
+      total: totalItems,
+      page,
+      perPage,
+      totalPages: Math.ceil(totalItems / perPage)
+    }
+  });
+}
 
 
 // URL | Description

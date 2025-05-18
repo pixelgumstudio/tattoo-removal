@@ -8,7 +8,8 @@ import DescriptionCard from "../shared/cards/DescriptionCard";
 import { Clinic } from "@/types/store";
 import Image from "next/image";
 import { Paragraph } from "../ui/typography";
-import { useSuggestByCities } from "@/lib/hooks/useStore";
+import { useStores } from "@/lib/hooks/useStore";
+import { AsyncStatus } from "./AsynStatus";
 
 
 
@@ -17,9 +18,11 @@ interface ClinicPageProps {
 }
 
 export default function ClinicPage({ store }: ClinicPageProps) {
-  const { data } = useSuggestByCities(`city=${store.city}&shuffle=true&min=3&limit=3`);
+  // const { data, isLoading, isError } = useSuggestByCities(`city=${store.city}&shuffle=true&min=3&limit=3`);
+  const filter = `city=${store.city}`;
 
-  const clinics = (data as Clinic[]) ?? []; // explicitly cast to an array of ClinicService
+    const { data: clinics, isLoading, isError } = useStores(1, 3, filter);
+  
   return (
     <section className="w-full px-4 md:px-6 lg:px-10 py-12">
       <div className="w-full max-w-[1152px] mx-auto grid gap-8 lg:grid-cols-[2fr_1fr]">
@@ -207,9 +210,9 @@ export default function ClinicPage({ store }: ClinicPageProps) {
             long={store.longitude}
             label={store.name}
           />
-
+<AsyncStatus isLoading={isLoading} isError={isError} />
           <div className="grid grid-cols-1 justify-center gap-6">
-            {clinics?.map((service: Clinic, i: number) => (
+            {clinics?.stores.map((service: Clinic, i: number) => (
               <DescriptionCard
               key={i}
               title={service.name}

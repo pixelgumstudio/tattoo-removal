@@ -15,7 +15,7 @@ const CityServiceCard = ({
 }: CityServiceCardProps) => {
   return (
     <Link
-      href={`/clinic-by-city/${city}`}
+      href={`/clinic-by-city/${city}?state=${state}`}
       className="relative overflow-hidden rounded-xl group aspect-[1.8/1] bg-gray-100"
     >
       <div className="absolute inset-0">

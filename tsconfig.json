@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/stores/name/[slug]/route.js", "src/app/clinic/[name]/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/stores/name/[slug]/route.js", "src/app/clinic/[name]/page.jsx", "src/app/clinic-by-city/[city]/page.jsx", "src/app/clinic-by-state/[state]/page.jsx", "src/app/clinic-by-city/[city]/pageFile.jsx"],
   "exclude": ["node_modules"]
 }

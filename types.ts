@@ -22,6 +22,7 @@ export interface FaqItemType {
 
 // === Section / Heading and description ===
 export interface CentreProps {
+  state?: string;
     title?: string;
     description?: string;
     alignment?: "left" | "center" | "right";

@@ -28,7 +28,6 @@ export default function CityServices({
 
 
   if (isError) return <p>Something went wrong!</p>;
-  console.log(clinics);
   return (
     <>
       <AsyncStatus isLoading={isLoading} isError={isError} />

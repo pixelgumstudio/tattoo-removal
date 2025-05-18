@@ -41,9 +41,10 @@ export default function Clinic() {
       <PageHeader title={store.name} />
       <ClinicPage store={store} />
       <TopServices
-        city={store.city}
+        state={store.state}
+        showPagination ={false}
         pageSize={10}
-        title={`Top tattoo removal service in the ${store.city}`}
+        title={`Top tattoo removal service in the ${store.state}`}
         description="Discover the top tattoo places to remove your Tattoos in the US"
       />
       <FaqSection

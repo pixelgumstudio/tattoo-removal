@@ -1,9 +1,11 @@
+"use client";
 import clsx from "clsx";
 import DescriptionCard from "../shared/cards/DescriptionCard";
 import { Subheading, Paragraph } from "../ui/typography";
 import { useStores } from "@/lib/hooks/useStore";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import DescriptionCardSkeleton from "../shared/loader/DescriptionCardSkeleton";
+import Pagination from "../ui/pagination";
 
 interface ServiceProps {
   pageSize?: number;
@@ -12,6 +14,7 @@ interface ServiceProps {
     title?: string;
     description?: string;
     alignment?: "left" | "center" | "right";
+    showPagination?: boolean;
   }
 
   
@@ -21,6 +24,7 @@ export default function TopServices({
   pageSize = 6,
   state,
   city,
+  showPagination = true,
     title,
     description,
     alignment = "left",
@@ -30,7 +34,7 @@ export default function TopServices({
         center: "text-center items-center",
         right: "text-right items-end",
       }
-      const page = 1;
+      const [page, setPage] = useState(1);
       const filter = state ? `state=${state}` : city ? `city=${city}` : "";
 
   const { data: clinics, isLoading, isError } = useStores(page, pageSize, filter);
@@ -68,6 +72,13 @@ export default function TopServices({
         </Suspense>
       ))}
         </div>
+        {showPagination && clinics?.total && (
+  <Pagination
+    page={page}
+    totalPages={clinics?.total}
+    onPageChange={setPage}
+  />
+)}
       </div>
     </section>
   );

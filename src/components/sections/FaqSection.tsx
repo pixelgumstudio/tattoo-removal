@@ -2,6 +2,12 @@ import { Subheading, Paragraph } from "@/components/ui/typography";
 import FaqItem from "../shared/FaqItem";
 import { CentreProps } from "../../../types";
 import clsx from "clsx";
+import { useFaqs } from "@/lib/hooks/useFaq";
+
+type Faq = {
+  question: string;
+  answer: string;
+};
 
 const faqData = [
   {
@@ -57,6 +63,7 @@ const faqData = [
 ];
 
 export default function FaqSection({
+  state,
   title,
   description,
   alignment = "left",
@@ -66,6 +73,11 @@ export default function FaqSection({
     center: "text-center items-center",
     right: "text-right items-end",
   };
+
+  const { data: faqs } = useFaqs(state ? state : "");
+
+  const showFaq = faqs ? faqs : faqData;
+
   return (
     <section className="px-4 py-16">
         <div className={"w-full max-w-[1152px] mx-auto"}>
@@ -82,7 +94,7 @@ export default function FaqSection({
         )}
       </div>
       <div>
-        {faqData.map((faq, idx) => (
+        {showFaq.map((faq: Faq, idx: number) => (
           <FaqItem
             key={idx}
             number={idx + 1}

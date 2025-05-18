@@ -4,6 +4,13 @@ import { CityServiceCardProps, Clinic, StateCard } from "../types/store";
 
 const BASE_URL = '/api/stores';
 
+export interface PaginationMeta {
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+}
+
 async function safeFetch<T>(url: string): Promise<T> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Error ${res.status}: ${res.statusText}`);
@@ -16,6 +23,8 @@ export function fetchStores(page = 1, pageSize = 10, filter = "") {
     page: number;
     limit: number;
     data: Clinic[];
+    meta: PaginationMeta;
+
   }>(`${BASE_URL}?page=${page}&pageSize=${pageSize}&${filter}`);
 }
 

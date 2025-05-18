@@ -12,13 +12,16 @@ export default function Clinic() {
   const pathname = usePathname();
 
   const pageName = pathname.split("/")[2]?.replace(/-/g, " ") || "";
-  console.log("pagename: ", pageName)
+
+  const formattedName = pageName.charAt(0).toUpperCase() + pageName.slice(1).toLowerCase();
+  const title = formattedName ? `Tattoo removal in ${decodeURIComponent(formattedName)}` : "Best tattoo removal by state";
+const description = formattedName ? `Discover all the places to remove your tattoo in ${decodeURIComponent(formattedName)}, US ` : "Best tattoo removal by state in the US";
 
   return (
     <>
       <PageHeader
-        title="Best tattoo removal by state"
-        description="Discover all the places to remove a tattoo in your state , or choose your state below to see which tattoo removal centres offer the best payments for tattoo removals "
+        title={title}
+        description={description}
       >
         <SearchBar type="state" placeholder="state"/>
       </PageHeader>
@@ -26,7 +29,7 @@ export default function Clinic() {
       <TopServices
       state={pageName}
       pageSize={10}
-        title={`Top tattoo removal service in the ${pageName ? pageName : "State"}`}
+        title={`Top tattoo removal service in the ${formattedName ? decodeURIComponent(formattedName) : "State"}`}
         description="Discover the top tattoo places to remove your Tattoos in the US"
       />
       
@@ -41,6 +44,7 @@ export default function Clinic() {
     
 
       <FaqSection
+      state={pageName}
         title="Frequently asked questions"
         description="Discover the top tattoo places to remove your Tattoos in the US"
       />
