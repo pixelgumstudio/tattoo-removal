@@ -52,6 +52,7 @@ return (
     
 
       <FaqSection
+      state={state}
         title="Frequently asked questions"
         description="Discover the top tattoo places to remove your Tattoos in the US"
       />

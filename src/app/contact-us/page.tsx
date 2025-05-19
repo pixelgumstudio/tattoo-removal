@@ -10,7 +10,7 @@ image: string,
 }
 
 const data: Page ={
-  title: "Tattooremovalplace | contact us ",
+  title: "Tattooremovalplace | contact us",
 description: `For any questions, inquiries, or collaborations, please use the form below to contact us. You may also email us directly at < a href="mailto:pixelgumstudio@gmail.com">pixelgumstudio@gmail.com</a> . We look forward to hearing from you!`,
 url: "",
 image: ""

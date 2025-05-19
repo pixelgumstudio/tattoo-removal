@@ -5,7 +5,7 @@ import { PageInterface } from "@/types/main";
 
 
 const data: PageInterface ={
-  title: "Tattooremovalplace | Tattoo Removal Clinics by State in the U.S.",
+  title: "Tattooremovalplace | Tattoo Removal services  by State in the U.S.",
 description: "Find top-rated tattoo removal services across states in the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.",
 url: "https://Tattooremovalplace.com/clinic-by-state",
 image: "https://Tattooremovalplace.com/seo-card.png"

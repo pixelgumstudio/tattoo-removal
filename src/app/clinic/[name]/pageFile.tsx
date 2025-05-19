@@ -48,6 +48,7 @@ export default function Clinic() {
         description="Discover the top tattoo places to remove your Tattoos in the US"
       />
       <FaqSection
+      state={store.state}
         title="Frequently asked questions"
         description="Answers to common tattoo removal questions to help you feel confident"
       />

@@ -1,57 +1,42 @@
+import PageFile from './pageFile';
+import { fetchStoreByName } from '@/lib/api/store';
+import ClinicSchema from './clinicSchema'
+ 
 export const dynamic = 'force-dynamic';
 
-import PageFile from "./pageFile";
-
 export async function generateMetadata({ params, searchParams }) {
-  const { name } = params || {};
-  const postal = typeof searchParams?.postal === "string" && searchParams.postal.trim() !== ""
-  ? searchParams.postal
-  : "N/A";
+  const name = params?.name || '';
+  const postal = searchParams?.postal || 'N/A';
 
-  if (!name) {
-    return {
-      title: "Error | Tattoo Removal Services",
-      description: "Invalid clinic name provided.",
-    };
+  const decodedSlug = decodeURIComponent(name);
+
+  let store = null;
+  try {
+    store = await fetchStoreByName(decodedSlug, postal);
+  } catch (error) {
+    console.error('Error fetching store:', error);
   }
 
-  const brandName = name
-  .split("-")
-  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-  .join(" ");
+  const fallbackDescription = 'Find top-rated tattoo removal services across the United States at TattooRemovalPlace.';
+  const description = (store?.description || fallbackDescription).slice(0, 150).trim().replace(/\s+\S*$/, '') + '...';
 
-  const rough_description = `Find top-rated tattoo removal services across the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.`;
-
-  const title = `${brandName} | Tattoo removal services`;
-const description = rough_description.slice(0, 150).trim().replace(/\s+\S*$/, "") + "...";
+  const title = `${decodedSlug.replace(/-/g, ' ')} | Tattoo removal services`;
   const url = `https://tattooremoval.com/clinic/${name}?postal=${postal}`;
-  const image = "https://tattooremoval.com/seo-card.png";
+  const image = store?.photo;
 
   return {
     title,
     description,
-    alternates: {
-      canonical: url,
-      languages: {
-        en: url,
-        es: url,
-        fr: url,
-      },
-    },
-    icons: {
-      icon: "https://tattooremoval.com/icon.png",
-    },
     openGraph: {
-      type: "website",
-      siteName: "TattooRemovalPlace",
+      type: 'website',
+      siteName: 'TattooRemovalPlace',
       title,
       description,
       url,
       images: [{ url: image }],
     },
     twitter: {
-      card: "summary_large_image",
-      site: url,
+      card: 'summary_large_image',
       title,
       description,
       images: [{ url: image }],
@@ -59,5 +44,11 @@ const description = rough_description.slice(0, 150).trim().replace(/\s+\S*$/, ""
   };
 }
 
-const Page = () => <PageFile />;
-export default Page;
+export default async function Page({ params, searchParams }) {
+  const store = await fetchStoreByName(params.name, searchParams?.postal || 'N/A');
+ 
+  return <>
+  <ClinicSchema store={store} />
+  <PageFile />
+  </>;
+}

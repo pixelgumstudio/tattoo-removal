@@ -20,7 +20,7 @@ const data: PageInterface = {
     "Tattooremovalplace -  Trusted Tattoo Removal Services Across the U.S",
   description:
     "Find top-rated tattoo removal services across the United States at TattooRemovalPlace in one directory. Compare clinics, explore reviews, and book affordable laser removal treatments all in one place.",
-  url: "https://Tattooremovalplace.com/clinic",
+  url: "https://Tattooremovalplace.com",
   image: "https://Tattooremovalplace.com/seo-card.png",
 };
 export const metadata: Metadata = {

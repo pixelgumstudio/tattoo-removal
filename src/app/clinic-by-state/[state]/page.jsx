@@ -18,11 +18,10 @@ export async function generateMetadata({ params }) {
 
   const data ={
     title: `Tattooremovalplace -  Tattoo Removal in ${state}, US`,
-    description: `Discover top-rated tattoo removal services in ${state}, US. Compare clinics, explore reviews, and book safe, affordable laser removal treatments with TattooRemovalPlace.`,
+    description: `Discover top-rated tattoo removal services near ${state}, US. Compare clinics, explore reviews, and book safe, affordable laser removal treatments with TattooRemovalPlace.`,
     url: `https://tattooremoval.com/clinic-by-state/${state}`,
   image: "https://Tattooremovalplace.com/seo-card.png"
   }
-
   return {
   title: data.title,
   description: data.description,

@@ -10,8 +10,8 @@ export async function generateMetadata({ params, searchParams }) {
     : 'N/A';
 
   const data = {
-    title: `Tattooremovalplace - Tattoo Removal near ${city}, ${state}, US`,
-    description: `Discover top-rated tattoo removal services near ${city}, ${state}, US. Compare clinics, explore reviews, and book safe, affordable laser removal treatments with TattooRemovalPlace.`,
+    title: `Tattooremovalplace - Tattoo Removal near ${city} ${state}, US`,
+    description: `Discover top-rated tattoo removal services near ${city} ${state}, US. Compare clinics, explore reviews, and book safe, affordable laser removal treatments with TattooRemovalPlace.`,
     url: `https://tattooremoval.com/clinic-by-city/${encodeURIComponent(city)}?state=${encodeURIComponent(state)}`,
     image: 'https://tattooremoval.com/seo-card.png',
   };
