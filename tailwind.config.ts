@@ -22,6 +22,6 @@ module.exports = {
         'desktop': '1280px',
       },
     },
-    plugins: [],
+    plugins: []
   };
   

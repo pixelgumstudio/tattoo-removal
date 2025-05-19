@@ -34,7 +34,7 @@ const CityServiceCard = ({
       <div className="relative z-10 flex flex-col justify-between h-full p-4 text-white">
         <div className="flex justify-between items-start">
           <div>
-            <Paragraph className="leading-snug">
+            <Paragraph className="leading-snug text-white">
               {city}, <br /> {state}
             </Paragraph>
           </div>
