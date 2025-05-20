@@ -1,6 +1,6 @@
 import PageFile from './pageFile';
 import { fetchStoreByName } from '@/lib/api/store';
-import ClinicSchema from './clinicSchema'
+// import ClinicSchema from './clinicSchema'
  
 export const dynamic = 'force-dynamic';
 
@@ -48,7 +48,7 @@ export default async function Page({ params, searchParams }) {
   const store = await fetchStoreByName(params.name, searchParams?.postal || 'N/A');
  
   return <>
-  <ClinicSchema store={store} />
+  {/* <ClinicSchema store={store} /> */}
   <PageFile />
   </>;
 }
