@@ -44,8 +44,7 @@ export async function generateMetadata({ params, searchParams }) {
   };
 }
 
-export default async function Page({ params, searchParams }) {
-  const store = await fetchStoreByName(params.name, searchParams?.postal || 'N/A');
+export default async function Page() {
  
   return <>
   {/* <ClinicSchema store={store} /> */}
