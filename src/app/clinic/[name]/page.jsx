@@ -1,5 +1,4 @@
 import PageFile from './pageFile';
-import { fetchStoreByName } from '@/lib/api/store';
 
 export const dynamic = 'force-dynamic';
 
@@ -37,8 +36,9 @@ export async function generateMetadata({ params, searchParams }) {
 
   const title = `${decodedSlug.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())} | Tattoo removal services`;
   const url = `https://tattooremovalplace.com/clinic/${name}?postal=${postal}`;
-  const image = store?.photo || 'https://tattooremovalplace.com/seo-card.png';
+  const image =  'https://tattooremovalplace.com/seo-card.png';
 
+  console.log(image)
   return {
     title,
     description,
