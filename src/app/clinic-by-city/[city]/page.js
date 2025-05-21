@@ -16,6 +16,8 @@ export async function generateMetadata({ params, searchParams }) {
     image: 'https://tattooremoval.com/seo-card.png',
   };
 
+
+
   return {
     title: data.title,
     description: data.description,
@@ -24,7 +26,7 @@ export async function generateMetadata({ params, searchParams }) {
     },
     openGraph: {
       type: 'website',
-      siteName: 'Tattooremovalplace',
+      siteName: 'Tattoo removal place',
       title: data.title,
       description: data.description,
       url: data.url,
@@ -36,6 +38,9 @@ export async function generateMetadata({ params, searchParams }) {
       title: data.title,
       description: data.description,
       images: [{ url: data.image }],
+    },
+    alternates: {
+      canonical: data.url,
     },
   };
 }

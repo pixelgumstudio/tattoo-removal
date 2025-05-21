@@ -12,8 +12,8 @@ image: string,
 const data: Page ={
   title: "Tattooremovalplace | contact us",
 description: `For any questions, inquiries, or collaborations, please use the form below to contact us. You may also email us directly at < a href="mailto:pixelgumstudio@gmail.com">pixelgumstudio@gmail.com</a> . We look forward to hearing from you!`,
-url: "",
-image: ""
+url: "https://tattooremovalplace.com/contact-us",
+image: "https://tattooremovalplace.com/seo-card.png"
 }
 export const metadata: Metadata = {
   
@@ -21,11 +21,11 @@ export const metadata: Metadata = {
   title: data.title,
   description: data.description,
   icons: {
-    icon: 'https://wordiebox.com/icon.png',  // This sets the favicon for this specific page
+    icon: '"https://tattooremovalplace.com/icon.png',  // This sets the favicon for this specific page
   },
   openGraph: {
     type: "website",
-    siteName: "Wordiebox",
+    siteName: "Tattoo removal place",
     title: data.title,
     description: data.description,
     url: data.url,

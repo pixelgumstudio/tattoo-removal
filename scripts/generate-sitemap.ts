@@ -12,7 +12,7 @@ interface ClinicInfo {
   name: string;
   city: string;
   state: string;
-  postal?: number;
+  postal_code?: number;
 }
 
 function slugify(str: string): string {
@@ -47,7 +47,7 @@ async function generateSitemap(): Promise<void> {
     const nameSlug = slugify(clinic.name);
     const citySlug = slugify(clinic.city);
     const stateSlug = slugify(clinic.state);
-    const postal = clinic.postal || 'N/A';
+    const postal = clinic.postal_code || 'N/A';
 
     // Individual clinic page
     smStream.write({
@@ -89,5 +89,5 @@ async function generateSitemap(): Promise<void> {
 
   console.log('✅ Sitemap successfully generated at /public/sitemap.xml.gz');
 }
-
+ 
 generateSitemap().catch(console.error);

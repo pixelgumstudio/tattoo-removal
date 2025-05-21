@@ -21,7 +21,7 @@ export async function generateMetadata({ params, searchParams }) {
   const description = (store?.description || fallbackDescription).slice(0, 150).trim().replace(/\s+\S*$/, '') + '...';
 
   const title = `${decodedSlug.replace(/-/g, ' ')} | Tattoo removal services`;
-  const url = `https://tattooremoval.com/clinic/${name}?postal=${postal}`;
+  const url = `https://tattooremovalplace.com/clinic/${name}?postal=${postal}`;
   const image = store?.photo;
 
   return {
@@ -40,6 +40,9 @@ export async function generateMetadata({ params, searchParams }) {
       title,
       description,
       images: [{ url: image }],
+    },
+    alternates: {
+      canonical: url,
     },
   };
 }

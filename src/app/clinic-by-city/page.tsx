@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     description: data.description,
     images: [{ url: data.image }],
   },
+  alternates: {
+      canonical: data.url,
+    },
 };
 
 const Page = () => {
