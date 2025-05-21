@@ -68,6 +68,5 @@ export function fetchStoreById(id: number) {
 // }
 
 export function fetchStoreByName({ slug, postal }: { slug: string, postal?: string }) {
-  console.log(`Fetching data for slug: ${slug} with postal: ${postal}`);
   return safeFetch<Clinic>(`${BASE_URL}/name/${encodeURIComponent(slug)}?postal=${postal}`);
 }

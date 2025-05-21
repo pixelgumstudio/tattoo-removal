@@ -14,7 +14,7 @@ export default function Navbar() {
     { label: "Tattoo removal by city", href: "/clinic-by-city" },
     { label: "About us", href: "/about-us" },
     { label: "Contact us", href: "/contact-us" },
-    { label: "Blog", href: "/blog" },
+    // { label: "Blog", href: "/blog" },
   ];
 
   return (

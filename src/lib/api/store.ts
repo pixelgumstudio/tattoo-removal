@@ -10,9 +10,7 @@ export async function fetchStoreByName(slug: string, postal: string) {
     }
   
     try {
-      const json = await res.json();
-      console.log("Fetched JSON:", json); // inspect structure
-  
+      const json = await res.json();  
       // Return json.store or json directly depending on your API
       return json?.store || json;
     } catch (err) {
