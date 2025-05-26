@@ -24,7 +24,7 @@ export default function ClinicPage({ store }: ClinicPageProps) {
     const { data: clinics, isLoading, isError } = useStores(1, 3, filter);
   
   return (
-    <section className="w-full px-4 md:px-6 lg:px-10 py-12">
+    <section className="w-full  px-4 md:px-8 py-10 md:py-20">
       <div className="w-full max-w-[1152px] mx-auto grid gap-8 lg:grid-cols-[2fr_1fr]">
         <div className="space-y-10">
           <TextBlock title="About company" content={store.description} />

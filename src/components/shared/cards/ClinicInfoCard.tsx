@@ -19,10 +19,9 @@ export default function ClinicInfoCard(storeData: Clinic) {
           <Paragraph className=" text-zinc-600 dark:text-zinc-300">💵 {data.price_range} · ⭐ {data.reviews}</Paragraph>
         </div>
         <div className="mt-4 flex flex-col gap-4">
-  <Link href={data.booking_appointment_link} className="text-center bg-[#EF476F] text-white text-sm py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#EF476F]">Book appointment</Link>
-  <Link href={data.site} className="text-sm text-center py-2 border rounded-lg border-[#EDEDED] text-[#EF476F] dark:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-[#EF476F]" type="submit">Get directions</Link>
+  <Link href={data.site} className="text-center bg-[#EF476F] text-white text-sm py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#EF476F]">Book appointment</Link>
+  <Link href={data.booking_appointment_link} className="text-sm text-center py-2 border rounded-lg border-[#EDEDED] text-[#EF476F] dark:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-[#EF476F]" type="submit">Get directions</Link>
 </div>
     </div>
   );
 }
- 

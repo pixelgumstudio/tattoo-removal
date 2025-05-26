@@ -70,7 +70,7 @@ const Features = ({
   />
            </div>
       <div className={clsx("bg-white z-10 relative max-w-[1152px] mx-auto px-4 md:px-8 py-15", alignment[align], className)}>
-        <Subheading align="center" className="mb-10 max-w-[900px] mx-auto">
+        <Subheading align="center" className="mb-10 max-w-[900px] mx-auto dark:text-black">
           {title}
         </Subheading>
          {description && <Paragraph size="base"  align="center" >{description}</Paragraph>}

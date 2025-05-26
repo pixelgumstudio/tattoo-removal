@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { Subheading, Paragraph } from "../ui/typography";
 import CityServiceCard from "../shared/cards/CityServiceCard";
 import { useFetchCities } from "@/lib/hooks/useStore";
-import { AsyncStatus } from "./AsynStatus";
 import { CityServiceCardProps } from "@/types/store";
 import CardSkeleton from "../shared/loader/CardSkeleton";
 
@@ -29,10 +28,8 @@ export default function CityServices({
 
   if (isError) return <p>Something went wrong!</p>;
   return (
-    <>
-      <AsyncStatus isLoading={isLoading} isError={isError} />
-      {!isLoading && !isError && (
-        <section className="w-full px-4 md:px-6 lg:px-10 py-12">
+
+        <section className="w-full px-4 md:px-8 py-10 md:py-20">
           <div className={`w-full max-w-[1152px] mx-auto`}>
             <div className={clsx("flex flex-col mb-8", margin[alignment])}>
               {title && (
@@ -75,7 +72,5 @@ export default function CityServices({
             </div>
           </div>
         </section>
-      )}
-    </>
   );
 }

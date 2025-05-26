@@ -23,9 +23,9 @@ const FaqItem = ({ question, answer, number }: FaqItemProps) => {
           <Paragraph
             size="lg"
             variant="muted"
-            className="mb-1 font-medium text-black/80 flex"
+            className="mb-1 font-medium text-black/80 dark:text-white flex"
           >
-            <span className="mr-4 text-black font-semibold">{String(number).padStart(2, "0")}</span>
+            <span className="mr-4 text-black dark:text-white font-semibold">{String(number).padStart(2, "0")}</span>
             <span>{question}</span>
           </Paragraph>
         </div>

@@ -6,6 +6,7 @@ import Main from "@/components/layout/Main";
 import Footer from "@/components/layout/Footer";
 import { PageInterface } from "../../types";
 import { Providers } from "./providers";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 
 const inter = Inter({
@@ -68,6 +69,8 @@ export default function RootLayout({
           <Navbar />
           <Main>{children}</Main>
           <Footer />
+           <GoogleTagManager gtmId="GTM-WLDJF64X" />
+        <GoogleAnalytics gaId="G-ZW2093EM66" />
         </Providers>
       </body>
     </html>

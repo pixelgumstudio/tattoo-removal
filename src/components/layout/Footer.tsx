@@ -11,8 +11,8 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#275375] text-white py-10">
-      <div className="max-w-[1152px] mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#275375] text-white px-4 md:px-8 py-10 md:py-20">
+      <div className="max-w-[1152px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between gap-10">
           {/* Branding */}
           <div>

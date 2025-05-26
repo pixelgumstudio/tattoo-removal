@@ -31,7 +31,7 @@ export default function PageHeader({
   return (
     <section
       className={clsx(
-        "relative w-full overflow-hidden px-4 md:px-8 py-4 md:py-20",
+        "relative w-full overflow-hidden px-4 md:px-8 py-10 md:py-20",
         height,
         className
       )}

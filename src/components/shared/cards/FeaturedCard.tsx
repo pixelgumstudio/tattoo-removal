@@ -11,7 +11,7 @@ const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
     <div className="text-center max-w-xs mx-auto">
       <div className="mb-3">{icon}</div>
-      <Title align="center">{title}</Title>
+      <Title align="center" className="dark:text-black">{title}</Title>
       <Paragraph align="center" variant="muted">
         {description}
       </Paragraph>

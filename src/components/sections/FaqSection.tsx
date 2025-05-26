@@ -79,7 +79,7 @@ export default function FaqSection({
   const showFaq = faqs ? faqs : faqData;
 
   return (
-    <section className="px-4 py-16">
+    <section className="px-4 md:px-8 py-10 md:py-20">
         <div className={"w-full max-w-[1152px] mx-auto"}>
       <div className={clsx("flex flex-col mb-8", textAlign[alignment])}>
         {title && (
@@ -88,7 +88,7 @@ export default function FaqSection({
           </Subheading>
         )}
         {description && (
-          <Paragraph className=" max-w-xxl">
+          <Paragraph className="max-w-xxl dark:text-white">
             {description}
           </Paragraph>
         )}
