@@ -61,6 +61,6 @@ export async function generateMetadata({ params, searchParams }) {
   };
 }
 
-export default function Page({ params, searchParams }) {
-  return <PageFile name={params?.name} postal={searchParams?.postal || ''} />;
+export default function Page() {
+  return <PageFile />;
 }
