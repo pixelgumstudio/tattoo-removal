@@ -1,4 +1,4 @@
-import { fetchStoreByName } from '@/lib/api/store';
+import { fetchPagesBySlug } from '@/lib/api/store';
 import PageFile from './pageFile';
 
 export async function generateMetadata({ params, searchParams }) {
@@ -6,7 +6,7 @@ export async function generateMetadata({ params, searchParams }) {
   const postal = await searchParams?.postal || '';
   const decodedSlug = decodeURIComponent(name);
 
-  const store = await fetchStoreByName(decodedSlug, postal);
+  const store = await fetchPagesBySlug(decodedSlug, postal);
 
   const fallbackDescription =
     'Find top-rated tattoo removal services across the United States at TattooRemovalPlace.';
