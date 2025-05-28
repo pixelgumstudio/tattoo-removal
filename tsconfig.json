@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/stores/name/[slug]/route.js", "src/app/clinic/[name]/page.jsx", "src/app/clinic-by-city/[city]/page.tsx", "src/app/clinic-by-state/[state]/page.jsx", "src/app/clinic-by-city/[city]/pageFile.jsx", "scripts/generate-sitemap.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/stores/name/[slug]/route.js", "src/app/clinic/[name]/pageeee.jsx", "src/app/clinic-by-city/[city]/page.tsx", "src/app/clinic-by-state/[state]/page.jsx", "src/app/clinic-by-city/[city]/pageFile.jsx", "scripts/generate-sitemap.ts", "src/app/clinic/[name]/page.jsx"],
   "exclude": ["node_modules"]
 }

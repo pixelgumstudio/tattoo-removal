@@ -50,7 +50,7 @@ export default function FindCentre({
                   locations: state.locations,
                   services: state.services,
                   backgroundImage: "/images/states/alabama.webp",
-                  link: `/clinic-by-state/${state.title.toLowerCase()}`,
+                  link: `/clinic-by-state/${state.title}`,
                 };
                 return (
                   <Suspense fallback={<CardSkeleton />} key={index}>

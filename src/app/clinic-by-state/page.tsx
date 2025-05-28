@@ -8,7 +8,7 @@ const data: PageInterface ={
   title: "Tattooremovalplace | Tattoo Removal services  by State in the U.S.",
 description: "Find top-rated tattoo removal services across states in the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.",
 url: "https://tattooremovalplace.com/clinic-by-state",
-image: "https://tattooremovalplace.com/seo-card.png"
+image: "/state.webp"
 }
 export const metadata: Metadata = {
   
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: data.title,
   description: data.description,
   icons: {
-    icon: 'https://tattooremovalplace.com/icon.png',  // This sets the favicon for this specific page
+    icon: data.image,  // This sets the favicon for this specific page
   },
   openGraph: {
     type: "website",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
 
-return <PageFile />
+return <PageFile state="" />
 };
 
 export default Page;

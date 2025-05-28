@@ -18,13 +18,14 @@ const inter = Inter({
 
 const data: PageInterface = {
   title:
-    "Tattooremovalplace -  Trusted Tattoo Removal Services Across the U.S",
+    "Tattooremovalplace -   Best Tattoo Removal Services in the U.S",
   description:
-    "Find top-rated tattoo removal services across the United States at TattooRemovalPlace in one directory. Compare clinics, explore reviews, and book affordable laser removal treatments all in one place.",
+    "Find the best tattoo removal services across the United States at TattooRemovalPlace in one directory. Compare clinics, explore reviews, and book affordable laser tattoo removal treatments all in one place.",
   url: "https://Tattooremovalplace.com",
   image: "https://Tattooremovalplace.com/seo-card.png",
 };
 export const metadata: Metadata = {
+  
   title: data.title,
   description: data.description,
   icons: {

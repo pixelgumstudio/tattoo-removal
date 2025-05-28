@@ -4,29 +4,42 @@ export const dynamic = 'force-dynamic';
 import PageFile from './pageFile';
 
 export async function generateMetadata({ params, searchParams }) {
-  const city = decodeURIComponent(params.city);
-  const state = typeof searchParams?.state === 'string'
-    ? decodeURIComponent(searchParams.state.trim())
-    : 'N/A';
+  const { city: cities } = await params;
+   const state = await searchParams?.state;
+  const city = decodeURIComponent(cities);
+  const states = decodeURIComponent(state.trim());
 
   const data = {
-    title: `Tattooremovalplace - Tattoo Removal near ${city} ${state}, US`,
-    description: `Discover top-rated tattoo removal services near ${city} ${state}, US. Compare clinics, explore reviews, and book safe, affordable laser removal treatments with TattooRemovalPlace.`,
-    url: `https://tattooremoval.com/clinic-by-city/${encodeURIComponent(city)}?state=${encodeURIComponent(state)}`,
-    image: 'https://tattooremoval.com/seo-card.png',
+    title: `TattooRemovalPlace - Tattoo Removal in ${city} ${states}, US`,
+    description: `Discover the best tattoo removal services in ${city} ${states}, US. Compare clinics, explore reviews, and book safe, affordable tattoo removal treatments with TattooRemovalPlace.`,
+    url: `https://tattooremoval.com/clinic-by-city/${cities}?state=${state}`,
+    image: '/city.webp',
   };
 
-
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: data.title,
+    image: data.image,
+    description: data.description,
+    address: {
+      "@type": "Address",
+      addressLocality: city,
+      addressRegion: state,
+      addressCountry: "US",
+    },
+    url: data.url,
+  };
 
   return {
     title: data.title,
     description: data.description,
     icons: {
-      icon: 'https://tattooremoval.com/icon.png',
+      icon: data.image,
     },
     openGraph: {
       type: 'website',
-      siteName: 'Tattoo removal place',
+      siteName: 'TattooRemovalPlace',
       title: data.title,
       description: data.description,
       url: data.url,
@@ -42,9 +55,12 @@ export async function generateMetadata({ params, searchParams }) {
     alternates: {
       canonical: data.url,
     },
+    other: {
+      'script:ld+json': JSON.stringify(structuredData),
+    },
   };
 }
 
-export default function Page() {
-  return <PageFile />;
+export default function Page({ params, searchParams }) {
+  return <PageFile city={params.city} state={searchParams.state} />;
 }

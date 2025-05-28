@@ -1,39 +1,35 @@
-import PageFile from './pageFile';
 import { fetchStoreByName } from '@/lib/api/store';
+import PageFile from './pageFile';
 
-export const dynamic = 'force-dynamic';
 
-export async function generateMetadata({ params, searchParams }) {
-  const name = params?.name || '';
-  const postal = searchParams?.postal || '';
+
+export async function generateMetadata(
+  { params, searchParams }){
+  const { name } = await params;
+  const postal = await searchParams?.postal || '';
   const decodedSlug = decodeURIComponent(name);
 
-  let store = null;
-  try {
-    store = await fetchStoreByName(decodedSlug, postal);
-  } catch (error) {
-    console.error('Error fetching store:', error);
-  }
-
-  const fallbackDescription = 'Find top-rated tattoo removal services across the United States at TattooRemovalPlace.';
+  const store = await fetchStoreByName(decodedSlug, postal);
+  const fallbackDescription =
+    'Find top-rated tattoo removal services across the United States at TattooRemovalPlace.';
   const storeName = decodedSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   const description = (store?.description || fallbackDescription).slice(0, 150).trim().replace(/\s+\S*$/, '') + '...';
 
-  const title = `${storeName} | Tattoo Removal Services`;
+  const title = `${storeName} in ${store?.city} ${store?.state} | Tattoo Removal Services`;
   const url = `https://tattooremovalplace.com/clinic/${name}${postal ? `?postal=${postal}` : ''}`;
   const image = store?.photo || 'https://tattooremovalplace.com/default-og-image.jpg';
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": store?.title || storeName,
-    "image": image,
-    "description": store?.description || fallbackDescription,
-    "address": {
+    name: store?.name || storeName,
+    image,
+    description: store?.description || fallbackDescription,
+    address: {
       "@type": "PostalAddress",
-      "postalCode": postal || "N/A"
+      postalCode: postal || "N/A"
     },
-    "url": url
+    url
   };
 
   return {
@@ -62,6 +58,6 @@ export async function generateMetadata({ params, searchParams }) {
   };
 }
 
-export default async function Page() {
-  return <PageFile />;
+export default function Page({ params, searchParams }) {
+  return <PageFile name={params.name} postal={searchParams.postal} />;
 }

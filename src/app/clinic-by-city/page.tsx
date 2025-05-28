@@ -9,7 +9,7 @@ const data: PageInterface = {
   description:
     'Find top-rated tattoo removal services across states in the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.',
   url: 'https://tattooremoval.com/clinic-by-city',
-  image: 'https://tattooremoval.com/seo-card.png',
+  image: '/city.webp',
 };
 
 export const metadata: Metadata = {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return    <Suspense fallback={<div>Loading page...</div>}>
-  <PageFile />
+  <PageFile city="" state="" />
 </Suspense>;
 };
 

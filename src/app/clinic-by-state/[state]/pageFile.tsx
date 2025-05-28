@@ -6,12 +6,10 @@ import FindCentre from "@/components/sections/FindCentre";
 import TopServices from "@/components/sections/TopServices";
 import PageHeader from "@/components/shared/PageHeader";
 import SearchBar from "@/components/shared/SearchBar";
-import { usePathname } from "next/navigation";
 
-export default function Clinic() {
-  const pathname = usePathname();
+export default function PageFile({state}: {state: string}) {
 
-  const pageName = pathname.split("/")[2]?.replace(/-/g, " ") || "";
+  const pageName = state.split("/")[2]?.replace(/-/g, " ") || "";
 
   const formattedName = pageName.charAt(0).toUpperCase() + pageName.slice(1).toLowerCase();
   const title = formattedName ? `Tattoo removal in ${decodeURIComponent(formattedName)}` : "Best tattoo removal by state";
