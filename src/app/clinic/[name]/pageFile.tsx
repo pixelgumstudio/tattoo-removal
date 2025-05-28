@@ -12,20 +12,15 @@ type Props = {
   postal: string ;
 };
 
-export default function PageFile({ name, postal }: Props) {
-  // Decode the slug to handle URL encoding 
-  console.log(name, postal);
+export default function PageFile({ name, postal }: { name: string; postal: string }) {
   const decodedSlug = decodeURIComponent(name);
-
   const { data: store, isLoading, error } = useStoreByName(decodedSlug, postal);
 
-  if (!decodedSlug) {
-    return <p>Clinic not found. Invalid URL.</p>;
-  }
-
+  if (!decodedSlug) return <p>Invalid URL.</p>;
   if (isLoading) return <FullPageLoader />;
-  if (error) return <p>Something went wrong: {(error as Error).message}</p>;
-  if (!store) return <p>No clinic found for this slug.</p>;
+  if (error) return <p>Error: {(error as Error).message}</p>;
+  if (!store) return <p>No clinic found.</p>;
+
 
   return (
     <>

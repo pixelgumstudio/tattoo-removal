@@ -1,22 +1,22 @@
 import { fetchStoreByName } from '@/lib/api/store';
 import PageFile from './pageFile';
 
-
-
-export async function generateMetadata(
-  { params, searchParams }){
-  const { name } = await params;
-  const postal = await searchParams?.postal || '';
+export async function generateMetadata({ params, searchParams }) {
+  const { name } = params;
+  const postal = searchParams?.postal || '';
   const decodedSlug = decodeURIComponent(name);
 
   const store = await fetchStoreByName(decodedSlug, postal);
+
   const fallbackDescription =
     'Find top-rated tattoo removal services across the United States at TattooRemovalPlace.';
   const storeName = decodedSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-  const description = (store?.description || fallbackDescription).slice(0, 150).trim().replace(/\s+\S*$/, '') + '...';
 
-  const title = `${storeName} in ${store?.city} ${store?.state} | Tattoo Removal Services`;
-  const url = `https://tattooremovalplace.com/clinic/${name}${postal ? `?postal=${postal}` : ''}`;
+  const description =
+    (store?.description || fallbackDescription).slice(0, 150).trim().replace(/\s+\S*$/, '') + '...';
+
+  const title = `${storeName} in ${store?.city || ''} ${store?.state || ''} | Tattoo Removal Services`;
+  const url = `https://tattooremovalplace.com/clinic/${name}${postal ? `?postal=${encodeURIComponent(postal)}` : ''}`;
   const image = store?.photo || 'https://tattooremovalplace.com/default-og-image.jpg';
 
   const structuredData = {
@@ -27,7 +27,10 @@ export async function generateMetadata(
     description: store?.description || fallbackDescription,
     address: {
       "@type": "PostalAddress",
-      postalCode: postal || "N/A"
+      addressLocality: store?.city || "N/A",
+      addressRegion: store?.state || "N/A",
+      postalCode: postal || "N/A",
+      addressCountry: "US"
     },
     url
   };
@@ -59,5 +62,5 @@ export async function generateMetadata(
 }
 
 export default function Page({ params, searchParams }) {
-  return <PageFile name={params.name} postal={searchParams.postal} />;
+  return <PageFile name={params.name} postal={searchParams.postal || ''} />;
 }
