@@ -20,7 +20,7 @@ const state = decodeURIComponent(states)
     title: `Best Tattoo Removal in ${state}, US`,
     description: `Discover the best  tattoo removal services in ${state}, US. Compare clinics, explore reviews, and book safe, affordable tattoo removal treatments with TattooRemovalPlace.`,
     url: `https://tattooremovalplace.com/clinic-by-state/${states}`,
-  image: "/state.webp'"
+  image: "/state.webp"
   }
 
     const structuredData = {

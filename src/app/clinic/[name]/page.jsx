@@ -3,7 +3,7 @@ import PageFile from './pageFile';
 
 export async function generateMetadata({ params, searchParams }) {
   const { name } = await params;
-  const postal = await searchParams?.postal || '';
+  const {postal} = await searchParams;
   const decodedSlug = decodeURIComponent(name);
 
   const store = await fetchPagesBySlug(decodedSlug, postal);
