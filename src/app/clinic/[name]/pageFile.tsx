@@ -7,10 +7,7 @@ import PageHeader from '@/components/shared/PageHeader';
 import FullPageLoader from '@/components/shared/loader/FullPageLoader';
 import { useStoreByName } from '@/lib/hooks/useStoreByName';
 
-type Props = {
-  name:  string ;
-  postal: string ;
-};
+
 
 export default function PageFile({ name, postal }: { name: string; postal: string }) {
   const decodedSlug = decodeURIComponent(name);
