@@ -23,7 +23,7 @@ export async function generateMetadata({ params, searchParams }) {
     image: data.image,
     description: data.description,
     address: {
-      "@type": "Address",
+      "@type": "PostalAddress",
       addressLocality: city,
       addressRegion: state,
       addressCountry: "US",

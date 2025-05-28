@@ -2,8 +2,8 @@ import { fetchStoreByName } from '@/lib/api/store';
 import PageFile from './pageFile';
 
 export async function generateMetadata({ params, searchParams }) {
-  const { name } = params;
-  const postal = searchParams?.postal || '';
+  const { name } = await params;
+  const postal = await searchParams?.postal || '';
   const decodedSlug = decodeURIComponent(name);
 
   const store = await fetchStoreByName(decodedSlug, postal);
@@ -62,5 +62,5 @@ export async function generateMetadata({ params, searchParams }) {
 }
 
 export default function Page({ params, searchParams }) {
-  return <PageFile name={params.name} postal={searchParams.postal || ''} />;
+  return <PageFile name={params?.name} postal={searchParams?.postal || ''} />;
 }
