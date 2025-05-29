@@ -19,7 +19,7 @@ interface ClinicPageProps {
 
 export default function ClinicPage({ store }: ClinicPageProps) {
   // const { data, isLoading, isError } = useSuggestByCities(`city=${store.city}&shuffle=true&min=3&limit=3`);
-  const filter = `city=${store.city}`;
+  const filter = `city=${store?.city}`;
 
     const { data: clinics, isLoading, isError } = useStores(1, 3, filter);
   
