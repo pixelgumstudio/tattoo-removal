@@ -2,8 +2,8 @@ import { fetchPagesBySlug } from '@/lib/api/store';
 import PageFile from './pageFile';
 
 export async function generateMetadata({ params, searchParams }) {
-  const { name } = await params;
-  const {postal} = await searchParams;
+ const { name } = params;
+  const { postal } = searchParams;
   const decodedSlug = decodeURIComponent(name);
 
   const store = await fetchPagesBySlug(decodedSlug, postal);
@@ -62,8 +62,8 @@ export async function generateMetadata({ params, searchParams }) {
 }
 
 export default async function Page({ params, searchParams }) {
-    const { name } = await params;
-  const {postal} = await searchParams;
+ const { name } = params;
+  const { postal } = searchParams;
   const decodedSlug = decodeURIComponent(name);
 
   const store = await fetchPagesBySlug(decodedSlug, postal);

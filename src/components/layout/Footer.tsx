@@ -7,7 +7,7 @@ export const Footer = () => {
     { label: "Tattoo removal by State", href: "/clinic-by-state" },
     { label: "Tattoo removal by city", href: "/clinic-by-city" },
     { label: "About us", href: "/about-us" },
-    { label: "Useful Links", href: "useful-links" },
+    { label: "Useful Links", href: "/useful-links" },
     // { label: "Blog", href: "/blog" },
   ];
 
@@ -17,7 +17,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-10">
           {/* Branding */}
           <div>
-          <Link href='/'><Title className="text-white">Tattooremovalvault</Title> </Link>
+          <Link href='/'><Title className="text-white">Tattooremovalplace</Title> </Link>
           </div>
 
           {/* Navigation Links */}

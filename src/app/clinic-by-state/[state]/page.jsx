@@ -73,7 +73,7 @@ const state = decodeURIComponent(states)
 
 
 const Page = async ({ params }) => {
-  const {state} = await params
+  const {state} = params
 return <PageFile state={state} />
 };
 

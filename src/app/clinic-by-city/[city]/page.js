@@ -4,8 +4,8 @@ export const dynamic = 'force-dynamic';
 import PageFile from './pageFile';
 
 export async function generateMetadata({ params, searchParams }) {
-  const { city: cities } = await params;
-   const state = await searchParams?.state;
+  const { city: cities } = params;
+   const {state} = searchParams;
   const city = decodeURIComponent(cities);
   const states = decodeURIComponent(state.trim());
 
@@ -62,7 +62,7 @@ export async function generateMetadata({ params, searchParams }) {
 }
 
 export default  async function Page({ params, searchParams }) {
-    const { city } = await params;
-   const state = await searchParams?.state;
+    const { city } = params;
+   const {state} = searchParams;
   return <PageFile city={city} state={state} />;
 }
