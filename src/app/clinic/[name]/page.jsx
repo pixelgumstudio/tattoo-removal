@@ -7,7 +7,7 @@ export async function generateMetadata({ params, searchParams }) {
   const decodedSlug = decodeURIComponent(name);
 
   const store = await fetchPagesBySlug(decodedSlug, postal);
-
+console.log("first page: ",store)
   const fallbackDescription =
     'Find top-rated tattoo removal services across the United States at TattooRemovalPlace.';
   const storeName = decodedSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
@@ -68,7 +68,7 @@ export default async function Page({ params, searchParams }) {
   const decodedSlug = decodeURIComponent(name);
 
   const store = await fetchPagesBySlug(decodedSlug, postal);
-    console.log(store)
+console.log("second page: ",store)
 
   return <PageFile clinic={store} />;
 }
