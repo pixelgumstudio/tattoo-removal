@@ -8,6 +8,10 @@ import { Clinic } from '../../../types/store';
 
 export default function PageFile({clinic}: { clinic: Clinic }) {
 
+  if(!clinic || !clinic.name) {
+    return <div className="text-center text-red-500">Clinic not found</div>;  
+  }
+
   return (
     <>
       <PageHeader title={clinic.name} />
