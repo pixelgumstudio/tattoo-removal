@@ -67,8 +67,5 @@ export default async function Page({ params, searchParams }) {
   const postal = await searchParams?.postal;
   const decodedSlug = decodeURIComponent(name);
 
-  const store = await fetchPagesBySlug(decodedSlug, postal);
-console.log("second page: ",store)
-
-  return <PageFile clinic={store} />;
+  return <PageFile name={decodedSlug} postal={postal} />;
 }
