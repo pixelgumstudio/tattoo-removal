@@ -7,7 +7,7 @@ import { PageInterface } from "@/types/main";
 
 
 export async function generateMetadata({ params }) {
-  const { state: states } = params || {};
+  const { state: states } = await params || {};
 
   if (!states) {
     return {
@@ -72,9 +72,9 @@ const state = decodeURIComponent(states)
 };
 
 
-const Page = ({ params }) => {
-
-return <PageFile state={params.state} />
+const Page = async ({ params }) => {
+  const {state} = await params
+return <PageFile state={state} />
 };
 
 export default Page;

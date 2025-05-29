@@ -10,7 +10,7 @@ export async function generateMetadata({ params, searchParams }) {
   const states = decodeURIComponent(state.trim());
 
   const data = {
-    title: `TattooRemovalPlace - Tattoo Removal in ${city} ${states}, US`,
+    title: `Best Tattoo Removal in ${city} ${states}, US`,
     description: `Discover the best tattoo removal services in ${city} ${states}, US. Compare clinics, explore reviews, and book safe, affordable tattoo removal treatments with TattooRemovalPlace.`,
     url: `https://tattooremoval.com/clinic-by-city/${cities}?state=${state}`,
     image: '/city.webp',
@@ -61,6 +61,8 @@ export async function generateMetadata({ params, searchParams }) {
   };
 }
 
-export default function Page({ params, searchParams }) {
-  return <PageFile city={params.city} state={searchParams.state} />;
+export default  async function Page({ params, searchParams }) {
+    const { city } = await params;
+   const state = await searchParams?.state;
+  return <PageFile city={city} state={state} />;
 }

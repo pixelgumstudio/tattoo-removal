@@ -52,11 +52,11 @@ export default function PageHeader({
           className
         )}
       >
-        <Heading className="text-white max-w-xl">
+        <Heading className="text-white max-w-[45rem]">
           {title}
         </Heading>
         {description && (
-          <Paragraph className=" text-white/80 max-w-xl" size='lg'>
+          <Paragraph className=" text-white/80 max-w-[48rem]" size='lg'>
             {description}
           </Paragraph>
         )}

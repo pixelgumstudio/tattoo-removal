@@ -5,7 +5,7 @@ import PageFile from './[city]/pageFile';
 import { PageInterface } from '@/types/main';
 
 const data: PageInterface = {
-  title: 'Tattooremovalplace | Tattoo Removal services  by city in the U.S.',
+  title: 'Best Tattoo Removal services by city in the U.S.',
   description:
     'Find top-rated tattoo removal services across states in the United States at TattooRemovalPlace. Compare clinics, explore reviews, and book affordable laser removal treatments—all in one place.',
   url: 'https://tattooremoval.com/clinic-by-city',

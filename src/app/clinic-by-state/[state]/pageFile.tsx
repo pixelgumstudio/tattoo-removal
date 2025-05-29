@@ -8,11 +8,11 @@ import PageHeader from "@/components/shared/PageHeader";
 import SearchBar from "@/components/shared/SearchBar";
 
 export default function PageFile({state}: {state: string}) {
+    
+  const formattedName = state.charAt(0).toUpperCase() + state.slice(1).toLowerCase();
+  console.log(formattedName)
 
-  const pageName = state.split("/")[2]?.replace(/-/g, " ") || "";
-
-  const formattedName = pageName.charAt(0).toUpperCase() + pageName.slice(1).toLowerCase();
-  const title = formattedName ? `Tattoo removal in ${decodeURIComponent(formattedName)}` : "Best tattoo removal by state";
+  const title = formattedName ? `Best tattoo removal in ${decodeURIComponent(formattedName)}` : "Best tattoo removal by state";
 const description = formattedName ? `Discover all the places to remove your tattoo in ${decodeURIComponent(formattedName)}, US ` : "Best tattoo removal by state in the US";
 
   return (
@@ -25,7 +25,7 @@ const description = formattedName ? `Discover all the places to remove your tatt
       </PageHeader>
 
       <TopServices
-      state={pageName}
+      state={state}
       pageSize={10}
         title={`Top tattoo removal service in the ${formattedName ? decodeURIComponent(formattedName) : "State"}`}
         description="Discover the top tattoo places to remove your Tattoos in the US"
@@ -42,7 +42,7 @@ const description = formattedName ? `Discover all the places to remove your tatt
     
 
       <FaqSection
-      state={pageName}
+      state={state}
         title="Frequently asked questions"
         description="Discover the top tattoo places to remove your Tattoos in the US"
       />
