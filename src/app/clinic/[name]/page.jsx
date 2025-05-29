@@ -15,7 +15,8 @@ export async function generateMetadata({ params, searchParams }) {
   const description =
     (store?.description || fallbackDescription).slice(0, 150).trim().replace(/\s+\S*$/, '') + '...';
 
-  const title = `${storeName} in ${store.city} ${store.state}`;
+  const title = `${storeName}${store?.city ? ` in ${store.city}` : ''}${store?.state ? ` ${store.state}` : ''}`;
+
   const url = `https://tattooremovalplace.com/clinic/${name}${postal ? `?postal=${encodeURIComponent(postal)}` : ''}`;
   const image = store?.photo || 'https://tattooremovalplace.com/default-og-image.jpg';
 
