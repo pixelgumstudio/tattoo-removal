@@ -7,6 +7,7 @@ export const Footer = () => {
     { label: "Tattoo removal by State", href: "/clinic-by-state" },
     { label: "Tattoo removal by city", href: "/clinic-by-city" },
     { label: "About us", href: "/about-us" },
+    { label: "Useful Links", href: "useful-links" },
     // { label: "Blog", href: "/blog" },
   ];
 

@@ -10,8 +10,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-inter);
-}
 
+
+  --breakpoint-small: 375px;
+  --breakpoint-tablet: 576px;
+  --breakpoint-ipad: 768px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1280px;
+
+    --container-big: 280px;
+    --container-large: 504px;
+
+}   
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
