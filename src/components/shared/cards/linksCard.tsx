@@ -12,7 +12,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ image, title, url }) => {
   return (
     <div className="w-full">
       <Link href={`/useful-links/${createSlug(title)}`} className="block group">
-        <div className="relative w-full aspect-[1/1] rounded-md overflow-hidden">
+        <div className="relative w-full aspect-[16/10] rounded-md overflow-hidden">
           <Image
             src={image}
             alt={title}

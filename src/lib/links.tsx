@@ -7,12 +7,12 @@ export const websiteLinks = [
       about: "We are a design studio and web agency specializing in affordable branding, product design, UI/UX design, web design, Craft CMS, eCommerce, organic SEO, and pitch decks."
   },
   {
-    title: "Tattoo Removal Place",
+    title: "Pitch Deck Design",
     description:
-      `Find the best tattoo removal services across the United States at Tattoo Removal Place in one directory. Compare clinics, explore reviews, and book affordable laser tattoo removal treatments all in one place. `,
-    url: "https://www.tattooremovalplace.com",
-    image: "/links/tattooremovalplace.webp",
-    about: "Find the best tattoo removal services across the United States at Tattooremovalplace in one directory. Compare clinics, explore reviews, and book affordable laser tattoo removal treatments all in one place."
+    `Browse top pitch deck examples that helped raise $100B+. Get inspired and purchase templates to create your own winning pitch deck.`,
+  url: "https://www.pitchdeck.design",
+    image: "/links/pitchdeck.png",
+      about: "Pitch deck examples from founders that has raised $100b"
   },
   {
     title: "WordieBox",
